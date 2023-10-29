@@ -1,0 +1,18 @@
+h1{
+    color: #333; /* Metin rengi */
+    font-family: Arial, sans-serif; /* Font ailesi */
+    text-align: center; /* Metin hizalama */
+    padding: 20px; /* Dolgu */
+    background-color: #f8f9fa; /* Arka plan rengi */
+    border: 2px solid #e9ecef; /* Kenarlık */
+    border-radius: 5px; /* Köşelerin yuvarlaklığı */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölge */
+}
+.container{
+    text-align: center;   
+    align-items: center;
+    display:grid;
+}
+#dataTable{
+    margin-top: 40px;
+}
