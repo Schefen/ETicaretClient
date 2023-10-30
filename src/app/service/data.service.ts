@@ -7,10 +7,27 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  private apiUrl = 'https://localhost:7070/api/Product';
+  private apiUrl = 'https://localhost:7070/api';
   constructor(private http:HttpClient) { }
 
   getData(): Observable<any> {
-    return this.http.get<any>(this.apiUrl)
+    const url = `${this.apiUrl}/Product`;
+    return this.http.get<any>(url)
+  }
+
+  postData(data:any): Observable<any>{
+    const url = `${this.apiUrl}/Product`;
+    const body = JSON.stringify(data);
+    return this.http.post<any>(url,body)
+  }
+
+  updateData(id:number, data:any): Observable<any>{
+    const url= `${this.apiUrl}/Product/${id}`;
+    return this.http.put<any>(url,data)
+  }
+
+  deleteData(id:number): Observable<any>{
+    const url = `${this.apiUrl}/Product/${id}`;
+    return this.http.delete<any>(url)
   }
 }

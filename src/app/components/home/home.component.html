@@ -3,6 +3,7 @@
   <table class="table table-striped">
     <thead> 
       <tr>
+        <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Price</th>
         <th scope="col">Quantity</th>
@@ -10,6 +11,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let products of data">
+        <td>{{ products.id | json }}</td>
         <td>{{ products.name | json }}</td>
         <td>{{ products.price | json }}</td>
         <td>{{ products.quantity | json }}</td>
@@ -19,6 +21,6 @@
 </div>
 
 <div class="container">
-  <a routerLink="/home">Home</a>
-  <a routerLink="/product">Product</a>
+  <a routerLink="/home">List of Products</a>
+  <a routerLink="/product">Add Product</a>
 </div>
