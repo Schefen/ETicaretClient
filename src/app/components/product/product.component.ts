@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-product',
@@ -7,24 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-  name:string = '';
-  price:string = '';
-  quantity:string = '';
-  response: any;
+  product={
 
-  constructor(private http:HttpClient){}
+  Name: '',
+  Price: '',
+  Quantity: ''
+}
+  constructor(private productService:DataService){}
+postData(){
+  this.productService.postData(this.product).subscribe(
+    response =>{
+      console.log(response);
+    },
+    error => {
+      console.error(error);
+    }
+    );
+}
 
-  postData(){
-    const url='https://localhost:7070/api/Product';
-    const body= JSON.stringify({
-      name: this.name,
-      price: this.price,
-      quantity: this.quantity
-    });
-    const headers= new HttpHeaders({'Content-Type':'application/json'});
-
-    this.http.post(url,body,{headers: headers}).subscribe((res)=>{
-      this.response = res;
-    })
-  }
 }

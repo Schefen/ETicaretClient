@@ -16,3 +16,9 @@ h1{
 #dataTable{
     margin-top: 40px;
 }
+.container2{
+    text-align: center;   
+    align-items: center;
+    display:grid;
+    margin-bottom: 50px;
+}

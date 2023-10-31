@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { mdlProduct } from '../components/home/home.component';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,11 @@ export class DataService {
 
   postData(data:any): Observable<any>{
     const url = `${this.apiUrl}/Product`;
-    const body = JSON.stringify(data);
-    return this.http.post<any>(url,body)
+    return this.http.post<any>(url,data)
   }
 
-  updateData(id:number, data:any): Observable<any>{
-    const url= `${this.apiUrl}/Product/${id}`;
+  updateData(data:mdlProduct): Observable<any>{
+    const url= `${this.apiUrl}/Product/${data.id}`;
     return this.http.put<any>(url,data)
   }
 
